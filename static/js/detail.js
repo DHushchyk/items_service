@@ -46,7 +46,7 @@ function imageToHTML(image) {
     imageList.insertAdjacentHTML("beforeend", `
         <div class="col-sm-3" id="image${imageId}">
             <div class="card" style="width: 18rem;">
-                <img src="${imageLink}" class="card-img-top" width="220" height="250" alt="Item">
+                <img src="${imageLink}" class="card-img-top" width="220" height="220" alt="Item">
                 <div class="card-body">
 					<button class="btn btn-danger" id="deleteImageButton${imageId}">Delete</button>
                 </div>  

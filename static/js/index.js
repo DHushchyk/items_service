@@ -87,7 +87,7 @@ function itemToHTML({id, title, price, images, author, created_at}) {
     const detailURL = document.baseURI + `item/${id}/`;
     let mainImage = "";
     if (images.length !== 0) {
-        mainImage = `<img src="${images[0].image}" class="card-img-top" width="220" height="250" alt="Item">`;
+        mainImage = `<img src="${images[0].image}" class="card-img-top" width="220" height="220" alt="Item">`;
     }
 
     itemsList.insertAdjacentHTML("beforeend", `
