@@ -1,1 +1,1 @@
-web: gunicorn url_shortening_service.wsgi --log-file -
+web: gunicorn items_service.wsgi --log-file -
