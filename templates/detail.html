@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="container">
+        <div class="row mb-3">
+						<p hidden id="itemId">{{ id }}</p>
+						<div id="sampleItem"></div>
+						<div class="d-grid gap-3 d-md-block">
+								<lable class="form-label">new title</lable>
+            		<input type="text" class="form-control"  id="newItemTitle">
+								<lable class="form-label">new price</lable>
+            		<input type="number" class="form-control" id="newItemPrice">
+								<lable class="form-label">author</lable>
+								<input type="text" class="form-control"  id="newItemAuthor"><br>
+								<div>
+										<button onclick="updateItem();" class="btn btn-success">Update</button>
+										<button onclick="deleteItem();" class="btn btn-danger">Delete item!</button>
+								</div><br>
+								<div>
+										<lable class="form-label">add new images</lable><br>
+										<input type="file" id="newItemImages" multiple accept="image/*">
+										<button onclick="addImageToSingleItem();" class="btn btn-primary">Add images</button>
+								</div>
+        		</div><br><br>
+
+        </div>
+
+				<div class="row" id="images"></div>
+		</div>
+		<script src="{% static 'js/detail.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="mb-3">Add new item</h2>
+        <div class="row mb-3">
+						<lable class="form-label">title</lable>
+            <input type="text" class="form-control"  id="itemTitle">
+						<lable class="form-label">price</lable>
+            <input type="number" class="form-control" id="itemPrice">
+						<lable class="form-label">author</lable>
+            <input type="text" class="form-control"  id="itemAuthor">
+						<lable class="form-label">images</lable>
+						<input type="file" class="form-control" id="itemImages" multiple accept="image/*">
+						<div class="d-grid gap-3 d-md-block">
+								<br>
+            		<button onclick="addItemImages();" class="btn btn-primary">Add item</button>
+        		</div>
+        </div>
+
+				<br>
+				<div class="row" id="items"></div>
+		</div>
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock content %}
