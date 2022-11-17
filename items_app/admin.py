@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Item, Image
+from .models import ItemModel, ImageModel
 
 
-admin.site.register(Item)
+admin.site.register(ItemModel)
 
-admin.site.register(Image)
+admin.site.register(ImageModel)

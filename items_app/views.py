@@ -4,7 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from items_service.settings import MEDIA_URL
-from items_app.models import Item, Image
+from items_app.models import ItemModel, ImageModel
 from items_app.serializers import (
     ItemSerializer,
     ImageSerializer,
@@ -22,12 +22,12 @@ def detail(request, pk):
 
 
 class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
+    queryset = ItemModel.objects.all()
     serializer_class = ItemSerializer
 
 
 class ImageViewSet(viewsets.ModelViewSet):
-    queryset = Image.objects.all()
+    queryset = ImageModel.objects.all()
     serializer_class = ImageSerializer
 
     @action(detail=False, methods=["POST"], url_path="upload-images")
@@ -37,16 +37,15 @@ class ImageViewSet(viewsets.ModelViewSet):
             images = serializer.validated_data.get("images")
             item = serializer.validated_data.get("item")
 
-            if images:
-                res_images = []
-                for image in images:
-                    created_image = Image.objects.create(item_id=item, image=image)
-                    res_images.append({
-                        "id": created_image.id,
-                        "image": MEDIA_URL + str(created_image.image),
-                        "item": created_image.item_id
-                    })
-                res = {"images": res_images}
-
+            res_images = []
+            for image in images:
+                created_image = ImageModel.objects.create(item_id=item, image=image)
+                res_images.append({
+                    "id": created_image.id,
+                    "image": MEDIA_URL + str(created_image.image),
+                    "item": created_image.item_id
+                })
+            res = {"images": res_images}
             return Response(res, status=status.HTTP_200_OK)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
