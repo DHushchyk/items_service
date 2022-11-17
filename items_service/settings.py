@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
-    "django-insecure-!(q9wzu_xd*n5^^g#ia7-62g+7lq%rx!nw&%zz55s67ade36(e"
+    "django-insecure-!(q9wzu_xd*n5^^g#ia7-62g+7lq%rx!nw&%zz55s67ade36(e",
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -59,8 +59,7 @@ ROOT_URLCONF = "items_service.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,9 +124,7 @@ STATIC_URL = "static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 STATIC_ROOT = "staticfiles/"
 

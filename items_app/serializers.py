@@ -19,6 +19,4 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class MultipleImageSerializer(serializers.Serializer):
     item = serializers.IntegerField()
-    images = serializers.ListField(
-        child=serializers.ImageField()
-    )
+    images = serializers.ListField(child=serializers.ImageField())

@@ -27,9 +27,9 @@ def get_image(count=1):
     images = []
     for _ in list(range(count)):
         file = io.BytesIO()
-        image = Image.new('RGBA', size=(100, 100), color=(155, 0, 0))
-        image.save(file, 'png')
-        file.name = 'test.png'
+        image = Image.new("RGBA", size=(100, 100), color=(155, 0, 0))
+        image.save(file, "png")
+        file.name = "test.png"
         file.seek(0)
         images.append(file)
     return images

@@ -14,13 +14,13 @@
 								<lable class="form-label">author</lable>
 								<input type="text" class="form-control"  id="newItemAuthor"><br>
 								<div>
-										<button onclick="updateItem();" class="btn btn-success">Update</button>
-										<button onclick="deleteItem();" class="btn btn-danger">Delete item!</button>
+										<button class="btn btn-success" id="updateItemButton">Update</button>
+										<button class="btn btn-danger" id="deleteItemButton">Delete item!</button>
 								</div><br>
 								<div>
 										<lable class="form-label">add new images</lable><br>
 										<input type="file" id="newItemImages" multiple accept="image/*">
-										<button onclick="addImageToSingleItem();" class="btn btn-primary">Add images</button>
+										<button class="btn btn-primary" id="addImageToSingleItemButton">Add images</button>
 								</div>
         		</div><br><br>
 
@@ -28,5 +28,6 @@
 
 				<div class="row" id="images"></div>
 		</div>
-		<script src="{% static 'js/detail.js' %}"></script>
+		<script type="module" src="{% static 'js/detail.js' %}"></script>
+		<script type="module" src="{% static 'js/utils.js' %}"></script>
 {% endblock %}

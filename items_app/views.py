@@ -8,7 +8,7 @@ from items_app.models import ItemModel, ImageModel
 from items_app.serializers import (
     ItemSerializer,
     ImageSerializer,
-    MultipleImageSerializer
+    MultipleImageSerializer,
 )
 
 
@@ -40,11 +40,13 @@ class ImageViewSet(viewsets.ModelViewSet):
             res_images = []
             for image in images:
                 created_image = ImageModel.objects.create(item_id=item, image=image)
-                res_images.append({
-                    "id": created_image.id,
-                    "image": MEDIA_URL + str(created_image.image),
-                    "item": created_image.item_id
-                })
+                res_images.append(
+                    {
+                        "id": created_image.id,
+                        "image": MEDIA_URL + str(created_image.image),
+                        "item": created_image.item_id,
+                    }
+                )
             res = {"images": res_images}
             return Response(res, status=status.HTTP_200_OK)
 
