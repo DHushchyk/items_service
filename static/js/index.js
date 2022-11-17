@@ -103,7 +103,7 @@ function itemToHTML({id, title, price, images, author, created_at}) {
                     <li class="list-group-item">${created_at}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="${detailURL}${id}/" class="card-link">More about...</a>
+                    <a href="${detailURL}" class="card-link">More about...</a>
                 </div>  
             </div>
             <br><br>
