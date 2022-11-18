@@ -22,4 +22,5 @@ from items_service import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("items_app.urls", namespace="items"))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
