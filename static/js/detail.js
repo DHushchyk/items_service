@@ -95,23 +95,6 @@ function updateItem() {
 
 document.getElementById("updateItemButton").addEventListener("click", updateItem);
 
-function deleteItem() {
-    let confirmDelete = confirm("Do you want to delete this item?")
-    if (confirmDelete) {
-        fetch(itemURL, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        }).then(response => {if (response.status === 204) {
-            alert("Item deleted succsesfull!");
-        }})
-    }
-    location.replace("/");
-}
-
-document.getElementById("deleteItemButton").addEventListener("click", deleteItem);
-
 function addImageToSingleItem() {
     const inputImages = document.getElementById("newItemImages");
     let images = inputImages.files;

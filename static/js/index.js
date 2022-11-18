@@ -83,6 +83,23 @@ function getAllItems() {
 
 window.addEventListener("DOMContentLoaded", getAllItems);
 
+function deleteItem(id) {
+    let confirmDelete = confirm("Do you want to delete this item?");
+    const item = document.querySelector(`#item${id}`)
+    const itemURL = itemsURL + `${id}/`;
+    if (confirmDelete) {
+        fetch(itemURL, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(response => {if (response.status === 204) {
+            item.remove();
+        }});
+    }
+
+}
+
 function itemToHTML({id, title, price, images, author, created_at}) {
     const itemsList = document.getElementById("items");
     const currentURL = document.baseURI
@@ -93,7 +110,7 @@ function itemToHTML({id, title, price, images, author, created_at}) {
     }
 
     itemsList.insertAdjacentHTML("beforeend", `
-        <div class="col-sm-3">
+        <div class="col-sm-3" id="item${id}">
             <div class="card" style="width: 18rem;">
                 ${mainImage}
                 <div class="card-body">
@@ -106,9 +123,13 @@ function itemToHTML({id, title, price, images, author, created_at}) {
                 </ul>
                 <div class="card-body">
                     <a href="${itemURL}" class="card-link">More about...</a>
+                    <button class="btn btn-danger" style="position: absolute; right: 15px; bottom: 9px" id="deleteItemButton${id}">Delete item</button>
                 </div>  
             </div>
             <br><br>
         </div>`
     );
+    document.getElementById(`deleteItemButton${id}`).addEventListener("click", () => {
+        deleteItem(id);
+    })
 }
