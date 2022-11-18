@@ -97,7 +97,6 @@ function deleteItem(id) {
             item.remove();
         }});
     }
-
 }
 
 function itemToHTML({id, title, price, images, author, created_at}) {
