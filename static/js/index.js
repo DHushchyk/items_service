@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", getAllItems);
 
 function itemToHTML({id, title, price, images, author, created_at}) {
     const itemsList = document.getElementById("items");
-    const detailURL = document.baseURI + `item/${id}/`;
+    const currentURL = document.baseURI
     let mainImage = "";
     if (images.length !== 0) {
         mainImage = `<img src="${images[0].image}" class="card-img-top" width="220" height="220" alt="Item">`;
@@ -103,7 +103,7 @@ function itemToHTML({id, title, price, images, author, created_at}) {
                     <li class="list-group-item">${created_at}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="${detailURL}" class="card-link">More about...</a>
+                    <a href="${currentURL}${id}" class="card-link">More about...</a>
                 </div>  
             </div>
             <br><br>
