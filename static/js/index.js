@@ -30,6 +30,7 @@ function addItemImages () {
             return response.json();
         }
     }).then(json => {
+        createdItem.id = json.id;
         createdItem.title = json.title;
         createdItem.price = json.price;
         createdItem.author = json.author;
@@ -85,6 +86,7 @@ window.addEventListener("DOMContentLoaded", getAllItems);
 function itemToHTML({id, title, price, images, author, created_at}) {
     const itemsList = document.getElementById("items");
     const currentURL = document.baseURI
+    const itemURL = currentURL + `item/${id}/`
     let mainImage = "";
     if (images.length !== 0) {
         mainImage = `<img src="${images[0].image}" class="card-img-top" width="220" height="220" alt="Item">`;
@@ -103,7 +105,7 @@ function itemToHTML({id, title, price, images, author, created_at}) {
                     <li class="list-group-item">${created_at}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="${currentURL}item/${id}" class="card-link">More about...</a>
+                    <a href="${itemURL}" class="card-link">More about...</a>
                 </div>  
             </div>
             <br><br>
