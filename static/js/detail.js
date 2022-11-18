@@ -105,7 +105,7 @@ function deleteItem() {
             }
         }).then(response => {if (response.status === 204) {
             alert("Item deleted succsesfull!");
-        }}).then(window.location.assign = "/")
+        }}).then(window.location = "/")
     }
 }
 
