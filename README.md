@@ -4,7 +4,7 @@ API service for managing items and images written on DRF
 
 ## Check it out!
 
-[Items Service project deployed to Render](https://items-servise.onrender.com/)
+[Items Service project deployed to Heroku](https://items-service.herokuapp.com/)
 
 ```shell
 git clone https://github.com/DHushchyk/items_service.git
